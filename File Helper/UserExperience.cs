@@ -19,16 +19,16 @@ public class UserExperience
     {
         var isRemove = false;
         if (choice == "1")
-            {
+        {
             isRemove = true;
-            }
+        }
         Console.WriteLine("Enter the prefix you would like to " + (isRemove ? "remove:" : "add:"));
         string prefix = Console.ReadLine() ?? string.Empty;
         if (prefix.Contains('*') || prefix == "" || prefix.Contains(':') || prefix.Contains('"') || prefix.Contains('/') || prefix.Contains('\\') || prefix.Contains('?') || prefix.Contains('\"') || prefix.Contains('<') || prefix.Contains('>') || prefix.Contains('|'))
-            {
+        {
             Console.WriteLine("The prefix contains invalid characters. Please avoid using special characters.");
             return getprefix(choice);
-            }
+        }
         return prefix;
 
     }
@@ -38,20 +38,19 @@ public class UserExperience
         ChooseOperand chooseOperand = new ChooseOperand();
         string choice = chooseOperand.getOperator();
         if (choice == "1")
-            {
+        {
             SpacedHighlight("Prefix removal selected.");
             string directory = pathHandler.getDirectory();
             if (!Directory.Exists(directory))
-                {
+            {
                 Console.WriteLine("The specified directory does not exist.");
                 ContinueOrStop();
                 return;
-                }
+            }
             string prefixToRemove = getprefix(choice);
             int filesAffected = Directory.GetFiles(directory)
             .Where(filesAffected => Path.GetFileName(filesAffected)
             .StartsWith(prefixToRemove, StringComparison.OrdinalIgnoreCase)).Count();
-
             SpacedHighlight("There are no undo options. Currently, " + filesAffected + " files will be affected.");
             Console.WriteLine("Are you sure you want to remove the prefix");
             SpacedHighlight("'" + prefixToRemove + "'");
@@ -60,28 +59,28 @@ public class UserExperience
             Console.WriteLine("Type 'yes' to confirm, otherwise cancels operation.");
             string Accept = Console.ReadLine() ?? string.Empty;
             if (Accept.ToLower() != "yes")
-                {
+            {
                 Console.WriteLine("Operation cancelled.");
                 ContinueOrStop();
                 return;
-                }
+            }
             else
-                {
+            {
                 PathHandler.removePrefix(directory, prefixToRemove);
                 ContinueOrStop();
-                }
             }
+        }
         else if (choice == "2")
-            {
+        {
             highlightText("Prefix addition selected.");
             BlankLine();
             string Dir = pathHandler.getDirectory();
             if (!Directory.Exists(Dir))
-                {
+            {
                 Console.WriteLine("The specified directory does not exist.");
                 ContinueOrStop();
                 return;
-                }
+            }
             Console.WriteLine("Enter prefix to add:");
             string prefixToAdd = getprefix(choice);
             int affectedFiles = Directory.GetFiles(Dir)
@@ -97,36 +96,36 @@ public class UserExperience
             Console.WriteLine("Type 'yes' to confirm, otherwise cancels operation.");
             string confirmation = Console.ReadLine() ?? string.Empty;
             if (confirmation.ToLower() != "yes")
-                {
+            {
                 Console.WriteLine("Operation cancelled.");
                 ContinueOrStop();
                 return;
-                }
+            }
             else
-                {
+            {
                 PathHandler.addPrefix(Dir, prefixToAdd);
                 ContinueOrStop();
-                }
             }
+        }
         else
-            {
+        {
             Console.WriteLine("An unexpected error has occurred.");
             ContinueOrStop();
-            }
+        }
     }
     public static void ContinueOrStop()
     {
         SpacedHighlight("Would you like to restart the program?");
         Console.WriteLine("Type 'yes' to restart, or anything else to exit.");
         if (Console.ReadLine() == "yes")
-            {
+        {
             Startup();
-            }
+        }
         else
-            {
+        {
             Farewell();
             Environment.Exit(0);
-            }
+        }
     }
     public static void highlightText(string text)
     {
