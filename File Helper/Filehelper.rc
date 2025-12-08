@@ -1,0 +1,24 @@
+id ICON "C:/Users/swett/Documents/FileHelper/File Helper/FileHelper.ico"
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+      VALUE "CompanyName", "Swett Design"
+      VALUE "FileDescription", "File handler to add or remove prefixes"
+      VALUE "FileVersion", "1.0"
+      VALUE "InternalName", "File Helper"
+      VALUE "LegalCopyright", "Riley Swett"
+      VALUE "OriginalFilename", "File Helper.exe"
+      VALUE "ProductName", "File Helper"
+      VALUE "ProductVersion", "1.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x809, 1252
+  END
+END
