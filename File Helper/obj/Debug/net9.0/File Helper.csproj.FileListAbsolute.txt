@@ -12,3 +12,4 @@ C:\Users\swett\Documents\FileHelper\File Helper\obj\Debug\net9.0\refint\File Hel
 C:\Users\swett\Documents\FileHelper\File Helper\obj\Debug\net9.0\File Helper.pdb
 C:\Users\swett\Documents\FileHelper\File Helper\obj\Debug\net9.0\File Helper.genruntimeconfig.cache
 C:\Users\swett\Documents\FileHelper\File Helper\obj\Debug\net9.0\ref\File Helper.dll
+C:\Users\swett\Documents\FileHelper\File Helper\obj\Debug\net9.0\File Helper.sourcelink.json

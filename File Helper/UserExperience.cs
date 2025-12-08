@@ -15,6 +15,23 @@ public class UserExperience
         Thread.Sleep(2000);
         System.Environment.Exit(0);
     }
+    public static  string getprefix(string choice)
+    {
+        var isRemove = false;
+        if (choice == "1")
+            {
+            isRemove = true;
+            }
+        Console.WriteLine("Enter the prefix you would like to " + (isRemove ? "remove:" : "add:"));
+        string prefix = Console.ReadLine() ?? string.Empty;
+        if (prefix.Contains('*') || prefix == "" || prefix.Contains(':') || prefix.Contains('"') || prefix.Contains('/') || prefix.Contains('\\') || prefix.Contains('?') || prefix.Contains('\"') || prefix.Contains('<') || prefix.Contains('>') || prefix.Contains('|'))
+            {
+            Console.WriteLine("The prefix contains invalid characters. Please avoid using special characters.");
+            return getprefix(choice);
+            }
+        return prefix;
+
+    }
     public static void Startup()
     {
         PathHandler pathHandler = new PathHandler();
@@ -30,8 +47,7 @@ public class UserExperience
                 ContinueOrStop();
                 return;
                 }
-            Console.WriteLine("Enter prefix to search for:");
-            string prefixToRemove = Console.ReadLine() ?? string.Empty;
+            string prefixToRemove = getprefix(choice);
             int filesAffected = Directory.GetFiles(directory)
             .Where(filesAffected => Path.GetFileName(filesAffected)
             .StartsWith(prefixToRemove, StringComparison.OrdinalIgnoreCase)).Count();
@@ -67,7 +83,7 @@ public class UserExperience
                 return;
                 }
             Console.WriteLine("Enter prefix to add:");
-            string prefixToAdd = Console.ReadLine() ?? string.Empty;
+            string prefixToAdd = getprefix(choice);
             int affectedFiles = Directory.GetFiles(Dir)
             .Where(affectedFiles => !Path.GetFileName(affectedFiles)
             .StartsWith(prefixToAdd, StringComparison.OrdinalIgnoreCase)).Count();
