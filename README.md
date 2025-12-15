@@ -6,24 +6,21 @@ Offers methods for adding and removing prefixes to all child members of a direct
 ==Additions==
 =
 
-Prefix Safety: getprefix method incorporates a check to ensure the prefix doesn't contain incompatible characters
+Prefix Safety: The getPrefix method incorporates a check to ensure the prefix doesn't contain incompatible characters
+  Also fixed unnecessary recursion in the getPrefix method
 
 Auto verbage based on operation :o
+
+Suffix Ops Addition and Subtraction :D
 
 ==TODO==
 =
 
 Prefix Swapper
--
-  
-old Prefix ---> New Prefix
 
-Suffix operations
--
+Suffix Swapper
 
-Not sure how to access and modify the end of a filename without the file type interfering with string operations.
-
-(at least, without a mega array of file types, and I don't really want to brute force it & file type can be 2-3 chars that I'm aware of)
+Simplify or refactor UserExperience
 
 ==Stretch goal==
 =
